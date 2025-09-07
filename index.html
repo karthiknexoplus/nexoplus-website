@@ -2,128 +2,93 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nexoplus - Coming Soon</title>
-    <meta name="description" content="Nexoplus - Your trusted partner in entrance automation and security solutions. Coming soon with innovative security solutions for modern spaces.">
-    <meta name="keywords" content="entrance automation, security solutions, visitor management, biometric solutions">
-
-    <!-- Favicons -->
-    <link href="assets/img/favicon.png" rel="icon">
-    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
+    <meta name="description" content="Nexoplus - Your trusted partner in entrance automation and security solutions. Coming soon with innovative security solutions.">
+    
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com" rel="preconnect">
-    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Vendor CSS -->
-    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
     <style>
-        :root {
-            --primary: #2b4c7e;
-            --secondary: #567ebb;
-            --accent: #ff6b6b;
-            --background: #f8f9fa;
-            --text: #333;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
             font-family: 'Inter', sans-serif;
-            background: var(--background);
-            color: var(--text);
+            line-height: 1.6;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            overflow-x: hidden;
+            background-color: #f8f9fa;
+            color: #333;
         }
 
-        .construction-page {
+        .construction-container {
             flex: 1;
             display: flex;
             align-items: center;
-            padding: 2rem 0;
+            justify-content: center;
+            padding: 20px;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('assets/img/hero-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .content {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 90%;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .logo {
             max-width: 150px;
-            margin-bottom: 2rem;
+            margin-bottom: 30px;
         }
 
         h1 {
-            color: var(--primary);
-            font-weight: 700;
+            color: #2b4c7e;
             font-size: 2.5rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
         }
 
         .tagline {
-            color: var(--secondary);
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
-        }
-
-        .features {
-            margin: 2rem 0;
-        }
-
-        .feature-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1rem;
-            padding: 1rem;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease;
-        }
-
-        .feature-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .feature-icon {
-            font-size: 1.5rem;
-            color: var(--accent);
-            margin-right: 1rem;
-        }
-
-        .contact-info {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        }
-
-        .social-links {
-            margin-top: 2rem;
-        }
-
-        .social-links a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: var(--primary);
-            color: white;
-            margin-right: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .social-links a:hover {
-            background: var(--secondary);
-            transform: translateY(-3px);
+            color: #567ebb;
+            font-size: 1.2rem;
+            margin-bottom: 30px;
         }
 
         .progress-bar {
-            height: 6px;
-            background: var(--secondary);
+            height: 4px;
+            background: #e9ecef;
+            border-radius: 2px;
+            margin: 30px 0;
+            overflow: hidden;
+        }
+
+        .progress-bar::after {
+            content: '';
+            display: block;
+            height: 100%;
             width: 0;
-            border-radius: 3px;
+            background: #2b4c7e;
             animation: progress 2s ease-in-out infinite;
         }
 
@@ -133,81 +98,79 @@
             100% { width: 100%; }
         }
 
+        .contact-info {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid #dee2e6;
+        }
+
+        .contact-info p {
+            margin: 10px 0;
+            color: #666;
+        }
+
+        .social-links {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #2b4c7e;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: #567ebb;
+            transform: translateY(-3px);
+        }
+
         @media (max-width: 768px) {
-            h1 { font-size: 2rem; }
-            .tagline { font-size: 1.1rem; }
+            .content {
+                padding: 30px 20px;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            .tagline {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
-
 <body>
-    <main class="construction-page">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8 text-center" data-aos="fade-up">
-                    <img src="assets/img/logo.png" alt="Nexoplus Logo" class="logo">
-                    <h1>Coming Soon</h1>
-                    <p class="tagline">Transforming entrance automation and security for modern spaces</p>
-                    <div class="progress-bar mb-4"></div>
-
-                    <div class="features row justify-content-center">
-                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
-                            <div class="feature-item">
-                                <i class="bi bi-shield-check feature-icon"></i>
-                                <span>Advanced Security Solutions</span>
-                            </div>
-                        </div>
-                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
-                            <div class="feature-item">
-                                <i class="bi bi-door-open feature-icon"></i>
-                                <span>Smart Entrance Management</span>
-                            </div>
-                        </div>
-                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
-                            <div class="feature-item">
-                                <i class="bi bi-fingerprint feature-icon"></i>
-                                <span>Biometric Solutions</span>
-                            </div>
-                        </div>
-                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
-                            <div class="feature-item">
-                                <i class="bi bi-phone feature-icon"></i>
-                                <span>Mobile Integration</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="contact-info mt-5" data-aos="fade-up" data-aos-delay="500">
-                        <h3>Contact Us</h3>
-                        <p class="mb-2">37/1, KG Nagar, Kamarajar Road<br>
-                        Uppilipalayam Post, Varadharajapuram<br>
-                        Tamil Nadu 641015</p>
-                        <p class="mb-3">
-                            <i class="bi bi-envelope-fill me-2"></i>info@nexoplus.com
-                        </p>
-                        <div class="social-links">
-                            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
-                            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-                            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-                            <a href="#" class="whatsapp"><i class="bi bi-whatsapp"></i></a>
-                        </div>
-                    </div>
+    <div class="construction-container">
+        <div class="content">
+            <img src="assets/img/logo.png" alt="Nexoplus Logo" class="logo">
+            <h1>Coming Soon</h1>
+            <p class="tagline">Securing Tomorrow's Access Today</p>
+            <div class="progress-bar"></div>
+            <p>We're working on something amazing.<br>Our new website is under construction.</p>
+            
+            <div class="contact-info">
+                <p><strong>Visit Us:</strong></p>
+                <p>37/1, KG Nagar, Kamarajar Road<br>
+                Uppilipalayam Post, Varadharajapuram<br>
+                Tamil Nadu 641015</p>
+                <p><i class="bi bi-envelope"></i> info@nexoplus.com</p>
+                
+                <div class="social-links">
+                    <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                    <a href="#" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
                 </div>
             </div>
         </div>
-    </main>
-
-    <!-- Vendor JS Files -->
-    <script src="assets/vendor/aos/aos.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            AOS.init({
-                duration: 1000,
-                easing: 'ease-in-out',
-                once: true,
-                mirror: false
-            });
-        });
-    </script>
+    </div>
 </body>
 </html>
