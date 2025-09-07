@@ -58,8 +58,9 @@
         }
 
         .logo {
-            max-width: 150px;
+            max-width: 200px;
             margin-bottom: 30px;
+            height: auto;
         }
 
         h1 {
@@ -109,6 +110,20 @@
             color: #666;
         }
 
+        .contact-info .email {
+            color: #2b4c7e;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info .email:hover {
+            color: #567ebb;
+        }
+
         .social-links {
             margin-top: 20px;
             display: flex;
@@ -150,7 +165,7 @@
 <body>
     <div class="construction-container">
         <div class="content">
-            <img src="assets/img/logo.png" alt="Nexoplus Logo" class="logo">
+            <img src="assets/img/logo.png" alt="Nexoplus Logo" class="logo" onerror="this.style.display='none'">
             <h1>Coming Soon</h1>
             <p class="tagline">Securing Tomorrow's Access Today</p>
             <div class="progress-bar"></div>
@@ -161,7 +176,12 @@
                 <p>37/1, KG Nagar, Kamarajar Road<br>
                 Uppilipalayam Post, Varadharajapuram<br>
                 Tamil Nadu 641015</p>
-                <p><i class="bi bi-envelope"></i> info@nexoplus.com</p>
+                <p>
+                    <a href="mailto:info@nexoplus.in" class="email">
+                        <i class="bi bi-envelope"></i>
+                        info@nexoplus.in
+                    </a>
+                </p>
                 
                 <div class="social-links">
                     <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
