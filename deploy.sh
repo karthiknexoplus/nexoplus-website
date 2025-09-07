@@ -64,6 +64,22 @@ setup_ssl() {
     fi
 }
 
+# Function to setup Git permissions
+setup_git() {
+    echo -e "${YELLOW}Setting up Git permissions...${NC}"
+    
+    # Add the directory to Git's safe directories
+    sudo git config --system --add safe.directory $DEPLOY_PATH
+    
+    # Set proper ownership
+    sudo chown -R www-data:www-data $DEPLOY_PATH
+    
+    # Make sure Git operations can be performed
+    sudo -u www-data git config --global --add safe.directory $DEPLOY_PATH
+    
+    echo -e "${GREEN}Git permissions configured successfully!${NC}"
+}
+
 echo -e "${GREEN}Starting Nexoplus deployment...${NC}"
 
 # Update system
@@ -78,12 +94,14 @@ sudo apt install -y nginx certbot python3-certbot-nginx git dnsutils
 # Create web directory if it doesn't exist
 echo -e "${YELLOW}Setting up web directory...${NC}"
 sudo mkdir -p $DEPLOY_PATH
-sudo chown -R www-data:www-data $DEPLOY_PATH
+
+# Setup Git permissions
+setup_git
 
 # Pull latest code
 echo -e "${YELLOW}Pulling latest code...${NC}"
 cd $DEPLOY_PATH
-git pull origin main
+sudo -u www-data git pull
 
 # Configure Nginx
 echo -e "${YELLOW}Configuring Nginx...${NC}"
@@ -173,4 +191,5 @@ echo "- View Nginx error logs: sudo tail -f /var/log/nginx/error.log"
 echo "- View SSL certificate status: sudo certbot certificates"
 echo "- Force SSL renewal: sudo certbot renew --force-renewal"
 echo "- Check DNS propagation: dig +short $DOMAIN"
-echo "- Your server IP: $SERVER_IP" 
+echo "- Your server IP: $SERVER_IP"
+echo "- Update website: cd $DEPLOY_PATH && sudo -u www-data git pull" 
