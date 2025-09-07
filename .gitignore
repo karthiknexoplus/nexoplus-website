@@ -1,34 +1,57 @@
 # System Files
 .DS_Store
 Thumbs.db
+*.swp
+*.swo
 
-# IDE - VSCode
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
+# IDE
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
 
 # Logs
 logs
 *.log
 npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
 # Dependencies
 node_modules/
 vendor/
+bower_components/
 
 # Environment files
 .env
 .env.local
 .env.*.local
+.env.development
+.env.test
+.env.production
 
 # Build output
 dist/
 build/
 out/
+.next/
 
-# Temporary files
-*.swp
-*.swo
-*~ 
+# Cache
+.cache/
+.temp/
+.tmp/
+*.cache
+
+# SSL
+*.pem
+*.key
+*.crt
+*.cer
+*.der
+*.priv
+
+# Backup files
+*.bak
+*.backup
+*~
+*.old 
